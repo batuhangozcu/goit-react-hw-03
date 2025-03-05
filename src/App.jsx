@@ -11,7 +11,6 @@ export const defContacts = [
   { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
 ];
 
-
 function App() {
   const [contacts, setContacts] = useState(() => {
     const savedContacts = localStorage.getItem("contacts");
@@ -38,14 +37,16 @@ function App() {
     localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
-
   return (
     <>
       <div>
         <h1>Phonebook</h1>
         <ContactForm onAddContact={handleAddContact} />
         <SearchBox setFilter={setFilter} />
-        <ContactList contacts={filteredContacts} onDelete={handleDeleteContact} />
+        <ContactList
+          contacts={filteredContacts}
+          onDelete={handleDeleteContact}
+        />
       </div>
     </>
   );
